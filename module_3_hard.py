@@ -25,8 +25,8 @@ def calculate_structure_sum(*args):
             if len(a) == 0:
                 break
             else:
-                for j in i:
-                    calculate_structure_sum(j)
+                for x in i:
+                    calculate_structure_sum(x)
         elif isinstance(i, dict):
             b = list(i.items())
             if len(b) == 0:
