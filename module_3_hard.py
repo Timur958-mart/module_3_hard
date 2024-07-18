@@ -7,6 +7,7 @@ data_structure = [
 ]
 list_sum = 0
 
+
 def calculate_structure_sum(*args):
     global list_sum
     for i in args:
@@ -16,25 +17,18 @@ def calculate_structure_sum(*args):
             list_sum += i
         elif isinstance(i, str):
             list_sum += len(i)
-        elif isinstance(i, (list, tuple)):
+        elif isinstance(i, (list, tuple, set)):
             if len(i) == 0:
                 break
             else:
                 for j in i:
                     calculate_structure_sum(j)
-        elif isinstance(i, set):
-            a = list(i)
+        elif isinstance(i, dict):
+            a = list(i.items())
             if len(a) == 0:
                 break
             else:
-                for x in i:
-                    calculate_structure_sum(x)
-        elif isinstance(i, dict):
-            b = list(i.items())
-            if len(b) == 0:
-                break
-            else:
-                calculate_structure_sum(b)
+                calculate_structure_sum(a)
     return list_sum
 
 
