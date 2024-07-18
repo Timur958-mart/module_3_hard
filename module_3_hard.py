@@ -10,7 +10,9 @@ list_sum = 0
 def calculate_structure_sum(*args):
     global list_sum
     for i in args:
-        if isinstance(i, (int, float)):
+        if isinstance(i, bool):
+            list_sum += len(str(i))
+        elif isinstance(i, (int, float)):
             list_sum += i
         elif isinstance(i, str):
             list_sum += len(i)
